@@ -1,16 +1,15 @@
-// <script src="scripts/cleaner.js"></script>
-window.onload = function () {
-    removerSpam();
-};
+document.addEventListener('DOMContentLoaded', function () {
+    limpiarSecciones();
+});
 
-function removerSpam() {
-    // Buscar la sección en el body que contiene el enlace
-    var element = document.querySelector('body section.display-7 a[href*="mobiri.se"]').closest('section');
-    // console.log('element', element);
+function limpiarSecciones() {
+    // Intentar seleccionar el footer
+    var footerSpam = document.querySelector('a[href*="mobirise.site"]').closest('section');
+    // console.log('FooterSpam:', footerSpam); // Esto debería mostrar el footer en la consola si se encuentra
 
-    // Verificar si se encontró el elemento y eliminarlo si es necesario
-    if (element) {
-        element.parentNode.removeChild(element);
+    if (footerSpam) {
+        footerSpam.parentNode.removeChild(footerSpam);
+    } else {
+            console.error('Footer no encontrado');
     }
-    // closest('section') se usa para encontrar el ancestro más cercano que sea un elemento <section>. Luego, si se encuentra la sección, se elimina del DOM. 
 }
